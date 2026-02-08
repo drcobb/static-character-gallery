@@ -14,6 +14,7 @@
 </nav>
 
 <h1>Video Game Character Gallery</h1>
+<input id="search" type="text" placeholder="Search characters..." style="padding:10px; width: 320px; max-width: 90%;">
 
 <input type="text" placeholder="Search characters...">
 
@@ -55,6 +56,15 @@
 </div>
 
 </div>
+<script>
+const search = document.getElementById("search");
+search.addEventListener("input", () => {
+  const q = search.value.toLowerCase();
+  document.querySelectorAll(".character-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(q) ? "" : "none";
+  });
+});
+</script>
 
 </body>
 </html>
